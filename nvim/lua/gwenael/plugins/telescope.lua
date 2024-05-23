@@ -16,11 +16,11 @@ return {
 		-- local trouble_telescope = require("trouble.providers.telescope")
 
 		-- or create your custom action
-		local custom_actions = transform_mod({
-			open_trouble_qflist = function(prompt_bufnr)
-				trouble.toggle("quickfix")
-			end,
-		})
+		-- local custom_actions = transform_mod({
+		--		open_trouble_qflist = function(prompt_bufnr)
+		--			trouble.toggle("quickfix")
+		--		end,
+		--	})
 
 		telescope.setup({
 			defaults = {
@@ -34,6 +34,6 @@ return {
 			},
 		})
 
-		telescope.load_extensions("fzf")
+		telescope.load_extension("fzf")
 	end,
 }
