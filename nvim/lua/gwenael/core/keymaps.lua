@@ -23,9 +23,15 @@ keymap.set("n", "<leader>ne", "<cmd>lua vim.diagnostic.goto_next()<CR>", { norem
 keymap.set("n", "<leader>pe", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { noremap = true, silent = true })
 
 --  fzf lua
-keymap.set("n", "<leader>ko", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
-keymap.set("n", "<leader>kf", "<cmd>lua require('fzf-lua').live_grep()<CR>", { silent = true })
-keymap.set("n", "<leader>kb", "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
+-- keymap.set("n", "<leader>ko", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
+-- keymap.set("n", "<leader>kf", "<cmd>lua require('fzf-lua').live_grep()<CR>", { silent = true })
+-- keymap.set("n", "<leader>kb", "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
+
+ -- set keymaps
+
+keymap.set("n", "<leader>ko", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
+keymap.set("n", "<leader>of", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
+keymap.set("n", "<leader>kf", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
 
 -- vim.api.nvim_set_keymap('n', '<leader>d[', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap('n', '<leader>d]', '<cmd>lua vim.diagnostic.goto_next()<CR>', { noremap = true, silent = true })
