@@ -1,25 +1,23 @@
 return {
-  "williamboman/mason.nvim",
-  dependencies = {
-    "williamboman/mason-lspconfig.nvim",
-  },
-  config = function()
-    local mason = require("mason")
-    local mason_lspconfig = require("mason-lspconfig")
-     
-    mason.setup()
+	"williamboman/mason.nvim",
+	dependencies = {
+		"williamboman/mason-lspconfig.nvim",
+	},
+	config = function()
+		local mason = require("mason")
+		local mason_lspconfig = require("mason-lspconfig")
 
-    mason_lspconfig.setup({
-      ensure_installed = {
-        "tsserver",
-        "html",
-        "cssls",
-        "tailwindcss",
-        "rust_analyzer",
-      },
-    })
+		mason.setup()
 
-  end,
+		mason_lspconfig.setup({
+			ensure_installed = {
+				"eslint",
+				"tsserver",
+				"html",
+				"cssls",
+				"tailwindcss",
+				"rust_analyzer",
+			},
+		})
+	end,
 }
-
-

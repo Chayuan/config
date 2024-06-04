@@ -71,5 +71,25 @@ return {
 		lspconfig["tsserver"].setup({
 			capabilities = capabilities,
 		})
+
+		lspconfig["eslint"].setup({
+			capabilities = capabilities,
+			root_dir = lspconfig.util.root_pattern("package.json"),
+			single_file_support = true,
+			on_attach = function(_client, bufnr)
+				vim.api.nvim_create_autocmd("BufWritePre", {
+					buffer = bufnr,
+					command = "EslintFixAll",
+				})
+			end,
+			filetypes = {
+				"typescript",
+				"typescriptreact",
+				"typescript.tsx",
+				"javascript.tsx",
+				"javascript",
+				"javascriptreact.tsx",
+			},
+		})
 	end,
 }
