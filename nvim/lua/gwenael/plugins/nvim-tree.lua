@@ -7,6 +7,7 @@ return {
 		local nvimtree = require("nvim-tree")
 		vim.g.loaded = 1
 		vim.g.loaded_netrwPlugin = 1
+		vim.g.loaded_netrw = 1
 
 		local keymap = vim.keymap
 		--  vim.keymap.set("n", "<leader>so", nvimtree.system_open, opts("Open"))
