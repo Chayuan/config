@@ -6,15 +6,15 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				-- Conform will run multiple formatters sequentially
+				-- Use a sub-list to run only the first available formatter of the sub-list
 				python = { "isort", "black" },
 
-				-- Use a sub-list to run only the first available formatter
-				javascript = { { "prettierd", "prettier", "eslint_d", "eslint" } },
-				javascriptreact = { { "prettierd", "prettier", "eslint_d", "eslint" } },
-				typescript = { { "prettierd", "prettier", "eslint_d", "eslint" } },
-				typescriptreact = { { "prettierd", "prettier", "eslint_d", "eslint" } },
+				javascript = { { "prettierd", "prettier" }, "eslint_d" },
+				javascriptreact = { { "prettierd", "prettier" }, "eslint_d" },
+				typescript = { { "prettierd", "prettier" }, "eslint_d" },
+				typescriptreact = { { "prettierd", "prettier" }, "eslint_d" },
 			},
-			format_on_save = {
+			format_after_save = {
 				-- These options will be passed to conform.format()
 				timeout_ms = 500,
 				lsp_fallback = true,
