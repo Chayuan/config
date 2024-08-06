@@ -26,7 +26,7 @@ return {
 			-- },
 			--
 			git = {
-				ignore = false,
+				ignore = true,
 			},
 			view = {
 				-- this makes the width dynamic based on the longest line
