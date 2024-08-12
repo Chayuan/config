@@ -56,7 +56,7 @@ return {
 						end)
 					end
 
-					map("n", "dd", delete_buf)
+					map("n", "d", delete_buf)
 
 					return true
 				end,
