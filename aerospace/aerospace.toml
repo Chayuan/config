@@ -101,7 +101,8 @@ alt-shift-l = 'move right'
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
 #alt-shift-minus = 'resize smart -50'
 #alt-shift-equal = 'resize smart +50'
-alt-shift-f = 'fullscreen'
+alt-shift-f = 'layout floating tiling'
+alt-shift-g = 'fullscreen'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-t = 'workspace T' # Terminal
@@ -146,8 +147,12 @@ run = ['layout floating']
 if.app-id = 'in.sinew.Enpass-Desktop'
 run = ['layout floating']
 [[on-window-detected]]
+if.app-id = 'in.sinew.Enpass-Desktop.App'
+run = ['layout floating']
+[[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
 run = ['layout floating']
+
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
