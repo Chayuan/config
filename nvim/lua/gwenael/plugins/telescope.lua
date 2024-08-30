@@ -11,6 +11,10 @@ return {
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
 		local transform_mod = require("telescope.actions.mt").transform_mod
+		local builtin = require("telescope.builtin")
+		local action_state = require("telescope.actions.state")
+
+		local keymap = vim.keymap
 
 		-- local trouble = require("trouble")
 		-- local trouble_telescope = require("trouble.providers.telescope")
@@ -41,11 +45,8 @@ return {
 
 		telescope.load_extension("fzf")
 
-		local builtin = require("telescope.builtin")
-		local action_state = require("telescope.actions.state")
-
 		-- allow buffer deletion with dd
-		vim.keymap.set("n", "<leader>kb", function()
+		keymap.set("n", "<leader>kb", function()
 			builtin.buffers({
 				initial_mode = "normal",
 				attach_mappings = function(prompt_bufnr, map)
@@ -66,5 +67,11 @@ return {
 				theme = "dropdown",
 			})
 		end)
+
+		keymap.set("n", "<leader>ko", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
+		keymap.set("n", "<leader>of", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
+		keymap.set("n", "<leader>kf", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
+		keymap.set("n", "<leader>m", builtin.git_status, { desc = "Find string in cwd" })
+		keymap.set("n", "<leader>kg", builtin.git_files, { desc = "Modified git files" })
 	end,
 }

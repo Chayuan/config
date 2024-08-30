@@ -133,6 +133,10 @@ if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace B'
 
 [[on-window-detected]]
+if.app-id = 'com.apple.freeform'
+run = 'move-node-to-workspace B'
+
+[[on-window-detected]]
 if.app-id = 'com.apple.systempreferences'
 run = 'layout floating'
 [[on-window-detected]]

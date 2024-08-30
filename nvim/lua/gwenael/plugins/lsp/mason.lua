@@ -12,7 +12,6 @@ return {
 		mason_lspconfig.setup({
 			ensure_installed = {
 				"eslint",
-        "prettier",
 				"tsserver",
 				"html",
 				"cssls",
