@@ -46,7 +46,7 @@ return {
 		telescope.load_extension("fzf")
 
 		-- allow buffer deletion with dd
-		keymap.set("n", "<leader>kb", function()
+		keymap.set("n", "<leader>b", function()
 			builtin.buffers({
 				initial_mode = "normal",
 				attach_mappings = function(prompt_bufnr, map)
@@ -68,9 +68,8 @@ return {
 			})
 		end)
 
-		keymap.set("n", "<leader>ko", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
-		keymap.set("n", "<leader>of", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
-		keymap.set("n", "<leader>kf", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
+		keymap.set("n", "<leader>o", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
+		keymap.set("n", "<leader>f", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
 		keymap.set("n", "<leader>m", builtin.git_status, { desc = "Find string in cwd" })
 		keymap.set("n", "<leader>kg", builtin.git_files, { desc = "Modified git files" })
 	end,

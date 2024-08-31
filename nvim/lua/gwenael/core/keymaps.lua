@@ -6,14 +6,10 @@ local keymap = vim.keymap
 keymap.set("i", "jk", "<ESC>")
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
-keymap.set("n", "x", '"_x')
-
--- keymap.set("n", "<leader>kh", "<C-w>v")
 keymap.set("n", "<leader>w", ":close<CR>")
 
 -- nvim-tree
-keymap.set("n", "<leader>b", ":NvimTreeToggle<CR>")
-keymap.set("n", "<leader>e", ":NvimTreeFocus<CR>")
+keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 keymap.set("n", "<leader>rt", ":NvimTreeFindFile<CR>")
 
 -- split windws
