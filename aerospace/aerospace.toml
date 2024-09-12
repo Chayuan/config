@@ -154,6 +154,10 @@ run = ['layout floating']
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
 run = ['layout floating']
+[[on-window-detected]]
+if.app-id = 'com.tinyapp.TablePlus'
+run = ['layout floating']
+
 
 
 # 'service' binding mode declaration.
