@@ -20,14 +20,14 @@ opt.smartcase = true
 -- cursor line
 opt.cursorline = true
 
--- appearance
+-- -- appearance
 opt.termguicolors = true
-opt.background = "dark"
+opt.background = "light"
 opt.signcolumn = "yes"
 
--- backspace 
+-- backspace
 opt.backspace = "indent,eol,start"
- 
+
 -- clipboard
 opt.clipboard:append("unnamedplus")
 
@@ -35,4 +35,4 @@ opt.clipboard:append("unnamedplus")
 opt.splitright = true
 opt.splitbelow = true
 
-opt.iskeyword:append("-");
+opt.iskeyword:append("-")

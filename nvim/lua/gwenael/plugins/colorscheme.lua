@@ -7,24 +7,42 @@
 -- 	end,
 -- }
 
+-- return {
+-- 	"navarasu/onedark.nvim",
+-- 	priority = 1000,
+-- 	config = function()
+-- 		local theme = require("onedark")
+-- 		theme.setup({
+-- 			style = "light",
+-- 		})
+-- 		theme.load()
+-- 	end,
+-- }
+
 return {
-	"navarasu/onedark.nvim",
+	"rose-pine/neovim",
 	priority = 1000,
 	config = function()
-		local theme = require("onedark")
+		local theme = require("rose-pine")
 		theme.setup({
-			style = "darker",
+			variant = "dawn", -- auto, main, moon, or dawn
 		})
-		theme.load()
+
+		vim.cmd("colorscheme rose-pine")
 	end,
 }
 
 -- return {
--- 	"rose-pine/neovim",
+-- 	"catppuccin/nvim",
+-- 	name = "catppuccin",
 -- 	priority = 1000,
 -- 	config = function()
--- 		require("rose-pine").setup({
--- 			variant = "dawn", -- auto, main, moon, or dawn
+-- 		require("catppuccin").setup({
+-- 			flavour = "latte",
+-- 			background = {
+-- 				light = "latte",
+-- 				dark = "mocha",
+-- 			},
 -- 		})
 -- 	end,
 -- }
