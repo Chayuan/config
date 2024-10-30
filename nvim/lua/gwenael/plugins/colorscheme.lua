@@ -19,16 +19,31 @@
 -- 	end,
 -- }
 
+-- return {
+-- 	"rose-pine/neovim",
+-- 	priority = 1000,
+-- 	config = function()
+-- 		local theme = require("rose-pine")
+-- 		theme.setup({
+-- 			variant = "dawn", -- auto, main, moon, or dawn
+-- 		})
+--
+-- 		vim.cmd("colorscheme rose-pine")
+-- 	end,
+-- }
+
 return {
-	"rose-pine/neovim",
+	"folke/tokyonight.nvim",
+	lazy = false,
 	priority = 1000,
 	config = function()
-		local theme = require("rose-pine")
+		local theme = require("tokyonight")
+
 		theme.setup({
-			variant = "dawn", -- auto, main, moon, or dawn
+			variant = "day",
 		})
 
-		vim.cmd("colorscheme rose-pine")
+		vim.cmd("colorscheme tokyonight")
 	end,
 }
 
