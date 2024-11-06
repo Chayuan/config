@@ -7,17 +7,17 @@
 -- 	end,
 -- }
 
--- return {
--- 	"navarasu/onedark.nvim",
--- 	priority = 1000,
--- 	config = function()
--- 		local theme = require("onedark")
--- 		theme.setup({
--- 			style = "light",
--- 		})
--- 		theme.load()
--- 	end,
--- }
+return {
+	"navarasu/onedark.nvim",
+	priority = 1000,
+	config = function()
+		local theme = require("onedark")
+		theme.setup({
+			style = "dark",
+		})
+		theme.load()
+	end,
+}
 
 -- return {
 -- 	"rose-pine/neovim",
@@ -32,20 +32,20 @@
 -- 	end,
 -- }
 
-return {
-	"folke/tokyonight.nvim",
-	lazy = false,
-	priority = 1000,
-	config = function()
-		local theme = require("tokyonight")
-
-		theme.setup({
-			variant = "day",
-		})
-
-		vim.cmd("colorscheme tokyonight")
-	end,
-}
+-- return {
+-- 	"folke/tokyonight.nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	config = function()
+-- 		local theme = require("tokyonight")
+--
+-- 		theme.setup({
+-- 			variant = "day",
+-- 		})
+--
+-- 		vim.cmd("colorscheme tokyonight")
+-- 	end,
+-- }
 
 -- return {
 -- 	"catppuccin/nvim",
