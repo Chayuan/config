@@ -18,6 +18,9 @@ keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
 keymap.set("n", "<leader>ne", "<cmd>lua vim.diagnostic.goto_next()<CR>", { noremap = true, silent = true })
 keymap.set("n", "<leader>pe", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { noremap = true, silent = true })
 
+-- In caps because it's kindda dangerous !
+keymap.set("n", "<leader>GR", "<cmd>!git checkout -- %<CR>", { noremap = true, silent = false })
+
 --  fzf lua
 -- keymap.set("n", "<leader>ko", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
 -- keymap.set("n", "<leader>kf", "<cmd>lua require('fzf-lua').live_grep()<CR>", { silent = true })
