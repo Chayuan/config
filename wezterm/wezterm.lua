@@ -2,8 +2,9 @@ local wezterm = require("wezterm")
 local config = {}
 
 -- config.color_scheme = 'Batman'
-config.font = wezterm.font("FiraCode Nerd Font")
-config.font_size = 14
+config.font = wezterm.font("FiraCode Nerd Font", { weight = "Regular" })
+config.font_size = 16
+-- config.cell_width = 1
 
 config.window_padding = {
 	left = 0,
