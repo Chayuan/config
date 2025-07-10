@@ -10,7 +10,11 @@ return {
 		mason.setup()
 
 		mason_lspconfig.setup({
+			automatic_enable = {
+				exlude = {},
+			},
 			ensure_installed = {
+				"html",
 				"eslint",
 				"ts_ls",
 				"html",
