@@ -17,7 +17,10 @@ return {
 				local opts = { silent = true, buffer = ev.buf }
 				keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
 				keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-				keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+				keymap.set("n", "gd", function()
+					vim.cmd("vsplit")
+					vim.lsp.buf.definition()
+				end, opts)
 				keymap.set("n", "K", vim.lsp.buf.hover, opts)
 				keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 				keymap.set("n", "gr", require("telescope.builtin").lsp_references, opts)

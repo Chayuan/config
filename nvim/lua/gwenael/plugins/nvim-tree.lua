@@ -32,6 +32,9 @@ return {
 				-- this makes the width dynamic based on the longest line
 				width = {},
 			},
+			filters = {
+				dotfiles = true,
+			},
 			actions = {
 				open_file = {
 					window_picker = {
