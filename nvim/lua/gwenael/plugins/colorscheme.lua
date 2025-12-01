@@ -11,45 +11,40 @@ return {
 	"navarasu/onedark.nvim",
 	dependencies = {
 		"folke/tokyonight.nvim",
+		"catppuccin/nvim",
 	},
 	priority = 1000,
 	config = function()
-		-- local dayTheme = require("tokyonight")
+		local dayTheme = require("tokyonight")
 		local theme = require("onedark")
-		theme.setup({
-			style = "dark",
-		})
-		theme.load()
+		local keymap = vim.keymap
 
-		-- local keymap = vim.keymap
-		--
-		-- function enableDarkTheme()
-		-- 	theme.setup({
-		-- 		style = "dark",
-		-- 	})
-		--
-		-- 	vim.g.background = "dark"
-		-- 	vim.opt.background = "dark"
-		-- 	theme.load()
-		-- end
-		--
-		-- function enableLightTheme()
-		-- 	vim.g.background = "light"
-		-- 	vim.opt.background = "light"
-		-- 	vim.cmd("colorscheme tokyonight-day")
-		-- end
-		--
-		-- function toggleTheme()
-		-- 	if vim.g.background == "dark" then
-		-- 		enableLightTheme()
-		-- 	else
-		-- 		enableDarkTheme()
-		-- 	end
-		-- end
-		--
-		-- enableDarkTheme()
-		--
-		-- keymap.set("n", "<leader>ct", toggleTheme, { noremap = true, silent = true })
+		function enableDarkTheme()
+			theme.setup({
+				style = "dark",
+			})
+
+			vim.g.background = "dark"
+			vim.opt.background = "dark"
+			theme.load()
+		end
+
+		function enableLightTheme()
+			vim.g.background = "light"
+			vim.opt.background = "light"
+			vim.cmd("colorscheme catppuccin-latte")
+		end
+
+		function toggleTheme()
+			if vim.g.background == "dark" then
+				enableLightTheme()
+			else
+				enableDarkTheme()
+			end
+		end
+
+		enableDarkTheme()
+		keymap.set("n", "<leader>ct", toggleTheme, { noremap = true, silent = true })
 	end,
 }
 

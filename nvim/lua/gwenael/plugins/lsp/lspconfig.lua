@@ -16,8 +16,9 @@ return {
 			callback = function(ev)
 				local opts = { silent = true, buffer = ev.buf }
 				keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
-				keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-				keymap.set("n", "gd", function()
+				-- keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+				keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+				keymap.set("n", "gD", function()
 					vim.cmd("vsplit")
 					vim.lsp.buf.definition()
 				end, opts)

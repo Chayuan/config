@@ -45,5 +45,3 @@ return {
 		})
 	end,
 }
-
---  vim.keymap.set('n', 'o',       api.node.open.edit,                  opts('Open'))
