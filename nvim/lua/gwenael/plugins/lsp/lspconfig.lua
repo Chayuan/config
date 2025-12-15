@@ -6,8 +6,6 @@ return {
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 	},
 	config = function()
-		local lspconfig = require("lspconfig")
-
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 		local keymap = vim.keymap
@@ -33,61 +31,45 @@ return {
 		-- used to enable autocompletion
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-		lspconfig["html"].setup({
-			capabilities = capabilities,
-		})
+ -- HTML
+  vim.lsp.config.html = {
+    cmd = { "vscode-html-language-server", "--stdio" },
+    filetypes = { "html", "templ" },
+    root_markers = { "package.json", ".git" },
+    capabilities = capabilities,
+  }
 
-		-- configure css server
-		lspconfig["cssls"].setup({
-			capabilities = capabilities,
-		})
+  -- CSS
+  vim.lsp.config.cssls = {
+    cmd = { "vscode-css-language-server", "--stdio" },
+    filetypes = { "css", "scss", "less" },
+    root_markers = { "package.json", ".git" },
+    capabilities = capabilities,
+  }
 
-		-- Rust
-		lspconfig["rust_analyzer"].setup({
-			flags = flags,
-			capabilities = capabilities,
-			settings = {
-				["rust-analyzer"] = {
-					cargo = {
-						allFeatures = true,
-					},
-					checkOnSave = {
-						allFeatures = true,
-						command = "clippy",
-					},
-					procMacro = {
-						ignored = {
-							["async-trait"] = { "async_trait" },
-							["napi-derive"] = { "napi" },
-							["async-recursion"] = { "async_recursion" },
-						},
-					},
-				},
-			},
-		})
+		-- TypeScript
+  vim.lsp.config.ts_ls = {
+    cmd = { "typescript-language-server", "--stdio" },
+    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+    root_markers = { "tsconfig.json", "jsconfig.json", "package.json" },
+    capabilities = capabilities,
+  }
 
-		-- configure tailwindcss server
-		lspconfig["tailwindcss"].setup({
-			capabilities = capabilities,
-		})
-
-		-- configure typescript server with plugin
-		lspconfig["ts_ls"].setup({
-			capabilities = capabilities,
-		})
-
-		lspconfig["eslint"].setup({
-			capabilities = capabilities,
-			root_dir = lspconfig.util.root_pattern("package.json"),
-			single_file_support = true,
-			filetypes = {
-				"typescript",
-				"typescriptreact",
-				"typescript.tsx",
-				"javascript.tsx",
-				"javascript",
-				"javascriptreact.tsx",
-			},
-		})
-	end,
+  -- ESLint
+  vim.lsp.config.eslint = {
+    cmd = { "vscode-eslint-language-server", "--stdio" },
+    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+    root_markers = { "package.json" },
+    capabilities = capabilities,
+  }
+  -- Enable all configured servers
+  vim.lsp.enable({
+    "html",
+    "cssls",
+    "rust_analyzer",
+    "tailwindcss",
+    "ts_ls",
+    "eslint",
+  })
+		end,
 }
