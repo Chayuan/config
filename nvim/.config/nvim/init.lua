@@ -1,3 +1,3 @@
-require("gwenael.core.options")
-require("gwenael.core.keymaps")
-require("gwenael.lazy")
+require("gwen.core.options")
+require("gwen.core.keymaps")
+require("gwen.lazy")
