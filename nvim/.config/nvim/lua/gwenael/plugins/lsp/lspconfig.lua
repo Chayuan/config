@@ -2,11 +2,14 @@ return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
-		{ "antosha417/nvim-lsp-file-operations", config = true },
+		"hrsh7th/cmp-nvim-lsp"
 	},
 	config = function()
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
+    local lsp = function(scope)
+      return function() require('mini.extra').pickers.lsp({ scope = scope }) end
+    end
 
 		local keymap = vim.keymap
 
@@ -14,15 +17,17 @@ return {
 			callback = function(ev)
 				local opts = { silent = true, buffer = ev.buf }
 				keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
-				-- keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-				keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-				keymap.set("n", "gD", function()
-					vim.cmd("vsplit")
-					vim.lsp.buf.definition()
-				end, opts)
 				keymap.set("n", "K", vim.lsp.buf.hover, opts)
-				keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-				keymap.set("n", "gr", require("telescope.builtin").lsp_references, opts)
+
+        -- lsp pickers using mini lsp pickers
+        keymap.set("n", "gr",         lsp('references'),       opts)  
+        keymap.set("n", "gd",         lsp('definition'),       opts) 
+        keymap.set("n", "gD",         lsp('declaration'),      opts)
+        keymap.set("n", "gi",         lsp('implementation'),   opts)
+        keymap.set("n", "gy",         lsp('type_definition'),  opts)
+        keymap.set("n", "<leader>ds", lsp('document_symbol'),  opts)
+        keymap.set("n", "<leader>ws", lsp('workspace_symbol'), opts)
+
 				keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 				keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 			end,
