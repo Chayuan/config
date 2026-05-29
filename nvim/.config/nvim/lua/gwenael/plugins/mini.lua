@@ -3,12 +3,14 @@ return {
   dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
   version = '*',
   config = function()
+    local tabline = require('mini.tabline')
     local pick = require('mini.pick')
 		local comment = require("mini.comment")
     local extra = require("mini.extra")
 		local keymap = vim.keymap
 
     pick.setup()
+    tabline.setup()
     extra.setup()
 
     pick.registry.buffers = function(local_opts)
@@ -24,15 +26,14 @@ return {
 	  keymap.set("n", "<leader>o", function() pick.builtin.files({ tool = 'git' }) end)
 		keymap.set("n", "<leader>f", function() pick.builtin.grep_live() end, 
       { desc = "Find string in cwd" })
-		keymap.set("n", "<leader>m", function() extra.pickers.git_hunks() end,
+		keymap.set("n", "<leader>m", function() extra.pickers.git_files({ scope="modified" }) end,
       { desc = "All modified files" })
 		keymap.set("n", "<leader>kg", function() extra.pickers.git_files() end, 
-      { desc = "Modified git files" })
-
-		keymap.set("n", "<leader>b", function() pick.registry.buffers() end, 
+      { desc = "All git files" })
+		keymap.set("n", "<leader>bb", function() pick.registry.buffers() end, 
       { desc = "Opened buffers" })
 
-   		comment.setup({
+   	comment.setup({
 			options = {
 				custom_commentstring = function()
 					return require("ts_context_commentstring.internal").calculate_commentstring()
