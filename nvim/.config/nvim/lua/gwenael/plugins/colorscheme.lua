@@ -22,6 +22,7 @@ return {
 		function enableDarkTheme()
 			theme.setup({
 				style = "dark",
+        transparent = true
 			})
 
 			vim.g.background = "dark"
